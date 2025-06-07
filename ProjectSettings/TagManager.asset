@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Green
   - Pin 2
+  - Black
+  - Bell
   layers:
   - Default
   - TransparentFX

@@ -39,6 +39,7 @@ public class Gameplay_Controller : MonoBehaviour
                 {
                     currentPivot = clickedPivot;
                     isRotating = true;
+                    SoundManager.Instance.PlayRotateTick();
                 }
             }
         }
@@ -75,14 +76,26 @@ public class Gameplay_Controller : MonoBehaviour
             {
                 isRotating = false;
                 currentPivot = pivot1;
+                SoundManager.Instance.StopRotateTick();
                 break;
             }
             else if (currentPivot != pivot2 && distanceToCircle2 < stopThreshold)
             {
                 isRotating = false;
                 currentPivot = pivot2;
+                SoundManager.Instance.StopRotateTick();
                 break;
             }
         }
+    }
+    public void SetVictory()
+    {
+        hasWon = true;
+        isRotating = false;
+        SoundManager.Instance.StopRotateTick();
+    }
+    public bool IsVictory()
+    {
+        return hasWon;
     }
 }
