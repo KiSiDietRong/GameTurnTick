@@ -44,4 +44,14 @@ public class UI_Control : MonoBehaviour
             });
         }
     }
+
+    public void Help()
+    {
+        Time.timeScale = 1f;
+        fadePanel.gameObject.SetActive(true);
+        fadePanel.DOFade(1f, 1f).OnComplete(() =>
+        {
+            SceneManager.LoadScene("Help");
+        });
     }
+}
